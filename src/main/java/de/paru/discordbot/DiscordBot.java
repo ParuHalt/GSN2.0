@@ -12,6 +12,8 @@ import net.dv8tion.jda.api.utils.ChunkingFilter;
 import net.dv8tion.jda.api.utils.MemberCachePolicy;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
 import utils.*;
+import utils.benutzereinstellungen.AgeRoles;
+import utils.benutzereinstellungen.MainMenu;
 
 import javax.security.auth.login.LoginException;
 
@@ -33,6 +35,8 @@ public class DiscordBot {
         builder.addEventListeners(new ReadMeEmbed());
         builder.addEventListeners(new RulesEmbed());
         builder.addEventListeners(new ServerInfo());
+        builder.addEventListeners(new MainMenu());
+        builder.addEventListeners(new AgeRoles());
 
         builder.enableCache(CacheFlag.ACTIVITY);
         builder.enableCache(CacheFlag.ONLINE_STATUS);
