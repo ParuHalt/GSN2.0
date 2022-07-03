@@ -1,7 +1,7 @@
 package utils;
 
 import net.dv8tion.jda.api.EmbedBuilder;
-import net.dv8tion.jda.api.entities.Emoji;
+import net.dv8tion.jda.api.entities.emoji.Emoji;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.components.buttons.Button;
@@ -29,7 +29,7 @@ public class PlayerJoinEvent extends ListenerAdapter {
         eb.setFooter(" | Have fun (╯°□°）╯︵ ┻━┻ | " + formatter.format(date), event.getMember().getEffectiveAvatarUrl());
         eb.setColor(0x4b3488);
 
-        Button gotoReadMe = Button.link("https://discord.com/channels/984470784972042271/985215300565864519/990262141179277382", "Hier kommst du zu dem Channel ReadMe").withEmoji(Emoji.fromMarkdown("<a:greencheckmark:990255860821413909>"));
+        Button gotoReadMe = Button.link("https://discord.com/channels/984470784972042271/985215300565864519/990262141179277382", "Hier kommst du zu dem Channel ReadMe").withEmoji(Emoji.fromFormatted("<a:greencheckmark:990255860821413909>"));
         event.getGuild().getTextChannelById("984821448533225522").sendMessageEmbeds(banner.build(), eb.build()).setActionRow(gotoReadMe).queue();
     }
 

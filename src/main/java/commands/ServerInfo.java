@@ -4,8 +4,6 @@ import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-
-import javax.lang.model.element.NestingKind;
 import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
 

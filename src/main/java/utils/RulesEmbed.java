@@ -1,13 +1,20 @@
 package utils;
 
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.MessageBuilder;
 import net.dv8tion.jda.api.Permission;
-import net.dv8tion.jda.api.entities.Emoji;
 import net.dv8tion.jda.api.entities.Role;
+import net.dv8tion.jda.api.entities.emoji.Emoji;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.interactions.InteractionHook;
+import net.dv8tion.jda.api.interactions.components.ActionRow;
 import net.dv8tion.jda.api.interactions.components.buttons.Button;
+
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 
 public class RulesEmbed extends ListenerAdapter {
 
@@ -45,7 +52,7 @@ public class RulesEmbed extends ListenerAdapter {
             footer.addField("_ _", "<a:yeh:990256005550055444><a:bannana:990254815407915018> **Viel Spaß wünscht euch das Stream Nation Team.** <a:hakcan:990255300877643846><a:rickroll:990255795226681365>", false);
             footer.setColor(0x52d557);
 
-            Button getVerifyUser = Button.success("getVerifyUser", "Ja, ich habe alles verstanden").withEmoji(Emoji.fromMarkdown("<a:somiteinander:816926638247510036>"));
+                Button getVerifyUser = Button.success("getVerifyUser", "Ja, ich habe alles verstanden").withEmoji(Emoji.fromFormatted("<a:somiteinander:816926638247510036>"));
 
             event.getTextChannel().sendMessageEmbeds(banner.build(), eb.build(), footer.build()).setActionRow(getVerifyUser).queue();
         }
@@ -58,7 +65,9 @@ public class RulesEmbed extends ListenerAdapter {
 
         if (event.getButton().getId().equals("getVerifyUser")) {
 
-            Button gotoBenutzereinstellungen = Button.link("https://discord.com/channels/984470784972042271/984470785441812542/990269978701881454", "(Coming soon)").withEmoji(Emoji.fromMarkdown("<a:mauscursor:817016897837072454>"));
+            InteractionHook ih = event.deferReply(true).complete();
+
+            Button gotoBenutzereinstellungen = Button.link("https://discord.com/channels/984470784972042271/985215740502220821", "Rollen Settings").withEmoji(Emoji.fromFormatted("<a:mauscursor:817016897837072454>"));
 
             EmbedBuilder replyembed = new EmbedBuilder();
             EmbedBuilder bannerreply = new EmbedBuilder();
@@ -76,8 +85,7 @@ public class RulesEmbed extends ListenerAdapter {
             Role getUser = event.getGuild().getRoleById("984818161314590770");
             event.getGuild().addRoleToMember(event.getMember(), getUser).queue();
 
-            event.replyEmbeds(bannerreply.build(), replyembed.build()).addActionRow(gotoBenutzereinstellungen).setEphemeral(true).queue();
-
+            ih.editOriginalEmbeds(bannerreply.build(), replyembed.build()).setActionRows(ActionRow.of(gotoBenutzereinstellungen)).queueAfter(500, TimeUnit.MILLISECONDS);
 
         }
 

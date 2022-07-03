@@ -12,8 +12,7 @@ import net.dv8tion.jda.api.utils.ChunkingFilter;
 import net.dv8tion.jda.api.utils.MemberCachePolicy;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
 import utils.*;
-import utils.benutzereinstellungen.AgeRoles;
-import utils.benutzereinstellungen.MainMenu;
+import utils.benutzereinstellungen.*;
 
 import javax.security.auth.login.LoginException;
 
@@ -36,7 +35,11 @@ public class DiscordBot {
         builder.addEventListeners(new RulesEmbed());
         builder.addEventListeners(new ServerInfo());
         builder.addEventListeners(new MainMenu());
-        builder.addEventListeners(new AgeRoles());
+        builder.addEventListeners(new EmbedCommand());
+        builder.addEventListeners(new SelectionRoles());
+        builder.addEventListeners(new Ready());
+
+        builder.addEventListeners(new Testclass());
 
         builder.enableCache(CacheFlag.ACTIVITY);
         builder.enableCache(CacheFlag.ONLINE_STATUS);
@@ -49,5 +52,8 @@ public class DiscordBot {
 
         JDA bot = builder.build();
         System.out.println("Mashalla ich bin da!");
+
+        MainMenu.initializeMessages();
+
     }
 }

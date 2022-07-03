@@ -1,13 +1,20 @@
 package utils;
 
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.MessageBuilder;
 import net.dv8tion.jda.api.Permission;
-import net.dv8tion.jda.api.entities.Emoji;
 import net.dv8tion.jda.api.entities.Role;
+import net.dv8tion.jda.api.entities.emoji.Emoji;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.interactions.InteractionHook;
+import net.dv8tion.jda.api.interactions.components.ActionRow;
 import net.dv8tion.jda.api.interactions.components.buttons.Button;
+
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 
 public class ReadMeEmbed extends ListenerAdapter {
 
@@ -40,7 +47,7 @@ public class ReadMeEmbed extends ListenerAdapter {
                 footer.setTitle("Soweit alles verstanden?");
                 footer.setDescription("> Dann klicke auf den Button, um zu den <#984470785441812542> zu gelangen.");
 
-                Button getUser = Button.success("getUser", "Ja, ich habe alles verstanden").withEmoji(Emoji.fromMarkdown("<a:tanzendekuh:782165263512633375>"));
+                Button getUser = Button.success("getUser", "Ja, ich habe alles verstanden").withEmoji(Emoji.fromFormatted("<a:tanzendekuh:782165263512633375>"));
 
                 event.getTextChannel().sendMessageEmbeds(banner.build(), eb.build(), footer.build()).setActionRow(getUser).queue();
 
@@ -54,7 +61,9 @@ public class ReadMeEmbed extends ListenerAdapter {
 
         if (event.getButton().getId().equals("getUser")) {
 
-            Button gotoRules = Button.link("https://discord.com/channels/984470784972042271/984470785441812542/990269978701881454", "Hier kommst du zu den Regeln").withEmoji(Emoji.fromMarkdown("<a:mauscursor:817016897837072454>"));
+            InteractionHook ih = event.deferReply(true).complete();
+
+            Button gotoRules = Button.link("https://discord.com/channels/984470784972042271/984470785441812542/990269978701881454", "Hier kommst du zu den Regeln").withEmoji(Emoji.fromFormatted("<a:mauscursor:817016897837072454>"));
 
 
             EmbedBuilder replyembed = new EmbedBuilder();
@@ -69,7 +78,7 @@ public class ReadMeEmbed extends ListenerAdapter {
             replyembed.setDescription("Klicke auf den Button, um zu den Regeln zu gelangen.");
             replyembed.setImage("https://cdn.discordapp.com/attachments/818211419974664214/988044606891495454/Footer_Banner.png");
 
-            event.replyEmbeds(bannerreply.build(), replyembed.build()).addActionRow(gotoRules).setEphemeral(true).queue();
+            ih.editOriginalEmbeds(bannerreply.build(), replyembed.build()).setActionRows(ActionRow.of(gotoRules)).queueAfter(500, TimeUnit.MILLISECONDS);
 
             Role getUser = event.getGuild().getRoleById("984472157012770887");
             event.getGuild().addRoleToMember(event.getMember(), getUser).queue();
