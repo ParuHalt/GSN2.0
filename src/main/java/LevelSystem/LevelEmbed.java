@@ -30,19 +30,19 @@ public class LevelEmbed extends ListenerAdapter {
             eb.addField("Lederboard:", "> **/Leaderboard**\n" +
                     "Hier kannst du sehen, wer das höchste Level auf dem Server hat.", true);
             eb.addField("Level Information eines Users:", "> **/Rank <@User>**\n" +
-                    "Alternativ kannst du auch **Rechtsklick** auf den User machen und dir unter **Apps > Show Rank** sein/ihr Level anzeigen lassen.", true);
+                    "Zeigt dir die aktuellen **XP Punkte** des Users an und wie viele man für das nächste Level braucht.", true);
             eb.addField("Zeige dir alle Ränge an:", "> **/Rewards**\n" +
                     "Sooo viele Farben...", true);
-            eb.addField("Vorteile für Booster", "Insofern ihr den Rang <@&984897728029003866> habt, bekommt ihr automatisch einen **2x Multiplikator.**", false);
+            eb.addField("Vorteile für Booster", "Insofern ihr den Rang **<@&984897728029003866>** habt, bekommt ihr automatisch einen **2x Multiplikator.**", false);
             eb.setImage("https://cdn.discordapp.com/attachments/880725442481520660/905443533824077845/auto_faqw.png");
 
             eb1.setImage("https://cdn.discordapp.com/attachments/818211419974664214/988044606891495454/Footer_Banner.png");
             eb1.setColor(0x4b3488);
             eb1.setTitle("Was bringen dir bestimmte Level?");
-            eb1.addField("Level 5+", "✅ Berechtigung für <#985559482778132580>\n" +
-                    "✅ Berechtigung um <#1045749085963030558> zu starten!", true);
-            eb1.addField("Level +10", "✅ Berechtigung für <#985559482778132580>", true);
-            eb1.addField("Level +15", "✅ Berechtigung für Teamler Bewerbungen. (comming soon...)", true);
+            eb1.addField("Level 5+", "✅ Berechtigung für **<#985559482778132580>**\n" +
+                    "✅ Berechtigung um **<#1045749085963030558>** zu starten!", true);
+            eb1.addField("Level +10", "✅ Berechtigung für **<#985559482778132580>**", true);
+            eb1.addField("Level +15", "✅ Berechtigung für **Teamler Bewerbungen**. (comming soon...)", true);
 
             Button leaderborad = Button.primary("lb", "Leaderborad").withEmoji(Emoji.fromFormatted("📊"));
 
