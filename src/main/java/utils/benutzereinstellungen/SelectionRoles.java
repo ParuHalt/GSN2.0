@@ -96,7 +96,7 @@ public class SelectionRoles extends ListenerAdapter {
                 }
 
                 eb.setColor(0x4b3488);
-                eb.setThumbnail("https://cdn.discordapp.com/attachments/990240111042113536/992753818402046042/synchronize.png");
+                eb.setThumbnail("https://cdn.discordapp.com/attachments/987815549880926218/1033054389235093596/synchronize.png");
                 if (added != "") {
                     eb.addField("<:Plus:992816396515946646> Neue Werte (" + addedint + "):", added.substring(2), false);
                 }
@@ -341,6 +341,7 @@ public class SelectionRoles extends ListenerAdapter {
             put("borderlands3", guild.getRoleById("990588174734602270"));
             put("brawhalla", guild.getRoleById("990586067730194442"));
             put("callofdutycoldwar", guild.getRoleById("990586057227661362"));
+            put("callofdutymw2", guild.getRoleById("1045743285983002705"));
             put("callofdutyvanguard", guild.getRoleById("990593601979433000"));
             put("callofdutywarzone", guild.getRoleById("990584394748153916"));
             put("csgo", guild.getRoleById("990583324848295977"));
@@ -348,12 +349,14 @@ public class SelectionRoles extends ListenerAdapter {
             put("dayz", guild.getRoleById("990593603761999912"));
             put("destiny2", guild.getRoleById("990584399152160798"));
             put("diabloiii", guild.getRoleById("990586065347833866"));
+            put("diabloiv", guild.getRoleById("1130805463697608784"));
             put("doometernal", guild.getRoleById("990591242847002644"));
             put("dota2", guild.getRoleById("990584398321680414"));
             put("dotaunderloards", guild.getRoleById("990591255723540500"));
             put("eldenring", guild.getRoleById("990593602491133992"));
             put("elderscrollsonline", guild.getRoleById("990588412505513994"));
             put("factorio", guild.getRoleById("990591245124505681"));
+            put("farmingsimulator22", guild.getRoleById("1045742917672767548"));
             put("fallguys", guild.getRoleById("990586061916889148"));
             put("fallout76", guild.getRoleById("990588408193761361"));
             put("forhonor", guild.getRoleById("990588171530166304"));
@@ -362,7 +365,6 @@ public class SelectionRoles extends ListenerAdapter {
             put("garrysmod", guild.getRoleById("990586069747658782"));
             put("gta5", guild.getRoleById("990584391266861128"));
             put("grounded", guild.getRoleById("990591250304483329"));
-            put("guildwars2", guild.getRoleById("990588414489407558"));
             put("halothemasterchiefcollection", guild.getRoleById("990588173992198144"));
             put("hearthstone", guild.getRoleById("990586067080065074"));
             put("hellletloose", guild.getRoleById("990594546842873877"));
@@ -396,7 +398,6 @@ public class SelectionRoles extends ListenerAdapter {
             put("seaofthieves", guild.getRoleById("990586056317472788"));
             put("smite", guild.getRoleById("990586072830459955"));
             put("starcitizen", guild.getRoleById("990591243715248138"));
-            put("starcraftii", guild.getRoleById("990591240217182228"));
             put("subnautica", guild.getRoleById("990591245883670578"));
             put("teamfortress2", guild.getRoleById("990588169294585876"));
             put("teamfighttactics", guild.getRoleById("990586053960282174"));

@@ -1,4 +1,4 @@
-package commands;
+package modules;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
@@ -7,7 +7,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class ServerInfo extends ListenerAdapter {
+public class Serverinfo extends ListenerAdapter {
 
     public void onMessageReceived(MessageReceivedEvent event) {
 

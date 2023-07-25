@@ -1,6 +1,5 @@
 package utils.benutzereinstellungen;
 
-import com.sun.org.apache.bcel.internal.generic.Select;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.MessageBuilder;
 import net.dv8tion.jda.api.Permission;
@@ -13,7 +12,13 @@ import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
 import net.dv8tion.jda.api.events.interaction.component.SelectMenuInteractionEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.interactions.InteractionHook;
+import net.dv8tion.jda.api.interactions.components.ActionRow;
+import net.dv8tion.jda.api.interactions.components.buttons.Button;
 import net.dv8tion.jda.api.interactions.components.selections.SelectMenu;
+
+import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 public class MainMenu extends ListenerAdapter {
 
@@ -30,7 +35,7 @@ public class MainMenu extends ListenerAdapter {
                 EmbedBuilder bannermain = new EmbedBuilder();
                 EmbedBuilder ebmain = new EmbedBuilder();
 
-                bannermain.setImage("https://cdn.discordapp.com/attachments/990240111042113536/992850881710145706/Rollen_Settings.png");
+                bannermain.setImage("https://cdn.discordapp.com/attachments/987815549880926218/1033036281908834425/Rollen_Settings.png");
                 bannermain.setColor(0x4b3488);
 
                 ebmain.setTitle("Hier kannst du anderen Usern was über dich erzählen.");
@@ -139,7 +144,7 @@ public class MainMenu extends ListenerAdapter {
                 EmbedBuilder eb = new EmbedBuilder();
                 eb.setTitle("Meine aktuellen Rollen:");
                 eb.setColor(0x4b3488);
-                eb.setThumbnail("https://cdn.discordapp.com/attachments/990240111042113536/993224742133825536/menu.png");
+                eb.setThumbnail("https://cdn.discordapp.com/attachments/987815549880926218/1033054359602352278/menu.png");
 
                 List<Role> roles = e.getMember().getRoles();
 
@@ -295,7 +300,7 @@ public class MainMenu extends ListenerAdapter {
                 "> \uD83D\uDD35 │ <@&984896542886490133> \n");
         ebage.setColor(0x4b3488);
         ebage.setImage("https://cdn.discordapp.com/attachments/880725442481520660/905443533824077845/auto_faqw.png");
-        ebage.setThumbnail("https://cdn.discordapp.com/attachments/990240111042113536/992485593349111818/cancel-2.png");
+        ebage.setThumbnail("https://cdn.discordapp.com/attachments/987815549880926218/1033054338182025216/cancel-2.png");
 
         EmbedBuilder ebgender = new EmbedBuilder();
 
@@ -305,7 +310,7 @@ public class MainMenu extends ListenerAdapter {
                 "> ⚧ │ <@&992104505942483016> \n");
         ebgender.setColor(0x4b3488);
         ebgender.setImage("https://cdn.discordapp.com/attachments/880725442481520660/905443533824077845/auto_faqw.png");
-        ebgender.setThumbnail("https://cdn.discordapp.com/attachments/990240111042113536/992488442774683838/user-male--v1.png");
+        ebgender.setThumbnail("https://cdn.discordapp.com/attachments/987815549880926218/1033054822225690694/user-male--v1.png");
 
         EmbedBuilder ebregion = new EmbedBuilder();
 
@@ -330,7 +335,7 @@ public class MainMenu extends ListenerAdapter {
                 "> <:50pxDeutschland_Lage_von_Thringe:992482079466065990> │ <@&992467696102944919> \n");
         ebregion.setColor(0x4b3488);
         ebregion.setImage("https://cdn.discordapp.com/attachments/880725442481520660/905443533824077845/auto_faqw.png");
-        ebregion.setThumbnail("https://cdn.discordapp.com/attachments/990240111042113536/992485166276694117/country_1.png");
+        ebregion.setThumbnail("https://cdn.discordapp.com/attachments/987815549880926218/1033054481090367659/country_1.png");
 
         EmbedBuilder ebdm = new EmbedBuilder();
 
@@ -340,7 +345,7 @@ public class MainMenu extends ListenerAdapter {
                 "> <:DMClosed:992840871848464425> │ <@&990573585041076244> \n");
         ebdm.setColor(0x4b3488);
         ebdm.setImage("https://cdn.discordapp.com/attachments/880725442481520660/905443533824077845/auto_faqw.png");
-        ebdm.setThumbnail("https://cdn.discordapp.com/attachments/990240111042113536/992837207683498144/mailbox-closed-flag-down.png");
+        ebdm.setThumbnail("https://cdn.discordapp.com/attachments/987815549880926218/1033054353772253234/mailbox-closed-flag-down.png");
 
         EmbedBuilder ebplatforms = new EmbedBuilder();
 
@@ -353,7 +358,7 @@ public class MainMenu extends ListenerAdapter {
                 "> <:Playstation:992757065338585108> │ <@&990571451331510282> \n");
         ebplatforms.setColor(0x4b3488);
         ebplatforms.setImage("https://cdn.discordapp.com/attachments/880725442481520660/905443533824077845/auto_faqw.png");
-        ebplatforms.setThumbnail("https://cdn.discordapp.com/attachments/990240111042113536/992760349541548112/Server.png");
+        ebplatforms.setThumbnail("https://media.discordapp.net/attachments/987815549880926218/1033054505916452924/Server.png?width=309&height=309");
 
         EmbedBuilder ebskills = new EmbedBuilder();
 
@@ -363,7 +368,7 @@ public class MainMenu extends ListenerAdapter {
                 "> <:Coden:992865244248547448> │ <@&990572584770867200> \n");
         ebskills.setColor(0x4b3488);
         ebskills.setImage("https://cdn.discordapp.com/attachments/880725442481520660/905443533824077845/auto_faqw.png");
-        ebskills.setThumbnail("https://cdn.discordapp.com/attachments/990240111042113536/992866214886002832/dribbble.png");
+        ebskills.setThumbnail("https://cdn.discordapp.com/attachments/987815549880926218/1033054346541269152/dribbble.png");
 
         EmbedBuilder ebgame1 = new EmbedBuilder();
 
@@ -378,6 +383,7 @@ public class MainMenu extends ListenerAdapter {
                 "> <:battlefield_v_sm:992875388399263855> │ <@&990586061803646976> \n" +
                 "> <:borderlands_3_sm:992875391234605086> │ <@&990588174734602270> \n" +
                 "> <:call_of_duty_cold_war_sm:992875394577481769> │ <@&990586057227661362> \n" +
+                "> <:MW2:1045744203000451232> │ <@&1045743285983002705> \n" +
                 "> <:call_of_duty_vanguard_sm:992875396150341802> │ <@&990593601979433000> \n" +
                 "> <:call_of_duty_warzone_sm:992875397588975698> │ <@&990584394748153916> \n" +
                 "> <:counter_strike_go_sm:992875399635804161> │ <@&990583324848295977> \n" +
@@ -385,12 +391,13 @@ public class MainMenu extends ListenerAdapter {
                 "> <:dayz_sm:992875408796168222> │ <@&990593603761999912> \n" +
                 "> <:destiny_2_sm:992875410020913172> │ <@&990584399152160798> \n" +
                 "> <:diablo_iii_sm:992875411019153440> │ <@&990586065347833866> \n" +
+                "> <:D4:1130793450971861102> │ <@&1130805463697608784> \n" +
                 "> <:doom_eternal_sm:992875415519633458> │ <@&990591242847002644> \n" +
                 "> <:dota_2_sm:992875416836636703> │ <@&990584398321680414> \n" +
                 "> <:dota_underlords_sm:992875418124288020> │ <@&990591255723540500> \n");
         ebgame1.setColor(0x4b3488);
         ebgame1.setImage("https://cdn.discordapp.com/attachments/880725442481520660/905443533824077845/auto_faqw.png");
-        ebgame1.setThumbnail("https://cdn.discordapp.com/attachments/990240111042113536/993212076984111104/Game.png");
+        ebgame1.setThumbnail("https://media.discordapp.net/attachments/987815549880926218/1033054505580892191/Game.png?width=309&height=309");
 
         EmbedBuilder ebgame2 = new EmbedBuilder();
 
@@ -398,6 +405,7 @@ public class MainMenu extends ListenerAdapter {
         ebgame2.setDescription("**Hier gibt es folgende Games:**\n" + "> <:elden_ring_sm:992875419445514240>️ │ <@&990593602491133992> \n" +
                 "> <:elder_scrolls_online_sm:992875421030948925>️ │ <@&990588412505513994> \n" +
                 "> <:factorio_sm:992875422041784321>️ │ <@&990591245124505681> \n" +
+                "> <:Fs22:1045744406097055774> │ <@&1045742917672767548> \n" +
                 "> <:fall_guys_sm:992875425359474738>️ │ <@&990586061916889148> \n" +
                 "> <:fallout_76_sm:992875426819080263>️ │ <@&990588408193761361> \n" +
                 "> <:for_honor_sm:992875431835476038>️ │ <@&990588171530166304> \n" +
@@ -406,7 +414,6 @@ public class MainMenu extends ListenerAdapter {
                 "> <:garrys_mod_sm:992875437715894272>️ │ <@&990586069747658782> \n" +
                 "> <:grand_theft_auto_5_sm:992875441130057778>️ │ <@&990584391266861128> \n" +
                 "> <:grounded_sm:992875443348832356>️ │ <@&990591250304483329> \n" +
-                "> <:guild_wars_2_sm:992875445441802332>️ │ <@&990588414489407558> \n" +
                 "> <:halo_the_master_chief_collection:992875446620393503>️ │ <@&990588173992198144> \n" +
                 "> <:hearthstone_sm:992875447866114179>️ │ <@&990586067080065074> \n" +
                 "> <:hell_let_loose_sm:992875448763678731>️ │ <@&990594546842873877> \n" +
@@ -416,7 +423,7 @@ public class MainMenu extends ListenerAdapter {
                 "> <:lost_ark_sm:992875372154720326>️ │ <@&990588410420949022> \n");
         ebgame2.setColor(0x4b3488);
         ebgame2.setImage("https://cdn.discordapp.com/attachments/880725442481520660/905443533824077845/auto_faqw.png");
-        ebgame2.setThumbnail("https://cdn.discordapp.com/attachments/990240111042113536/993212076984111104/Game.png");
+        ebgame2.setThumbnail("https://media.discordapp.net/attachments/987815549880926218/1033054505580892191/Game.png?width=309&height=309");
 
         EmbedBuilder ebgame3 = new EmbedBuilder();
 
@@ -444,7 +451,7 @@ public class MainMenu extends ListenerAdapter {
                 "<:rust_sm:992875682017312768>️ │ <@&990584400670498816> \n");
         ebgame3.setColor(0x4b3488);
         ebgame3.setImage("https://cdn.discordapp.com/attachments/880725442481520660/905443533824077845/auto_faqw.png");
-        ebgame3.setThumbnail("https://cdn.discordapp.com/attachments/990240111042113536/993212076984111104/Game.png");
+        ebgame3.setThumbnail("https://media.discordapp.net/attachments/987815549880926218/1033054505580892191/Game.png?width=309&height=309");
 
         EmbedBuilder ebgame4 = new EmbedBuilder();
 
@@ -454,7 +461,6 @@ public class MainMenu extends ListenerAdapter {
                 "> <:sea_of_thieves_sm:992875687302144030>️ │ <@&990586056317472788> \n" +
                 "> <:smite_sm:992875688560443453>️ │ <@&990586072830459955> \n" +
                 "> <:star_citizen_sm:992875691043459133>️ │ <@&990591243715248138> \n" +
-                "> <:starcraft_ii_sm:992875692637290536>️ │ <@&990591240217182228> \n" +
                 "> <:subnautica_below_zero_sm:992875695258742804>️ │ <@&990591245883670578> \n" +
                 "> <:team_fortress_2_sm:992875697985032223>️ │ <@&990588169294585876> \n" +
                 "> <:teamfight_tactics_sm:992875700224786462>️ │ <@&990586053960282174> \n" +
@@ -470,7 +476,7 @@ public class MainMenu extends ListenerAdapter {
                 "> <:world_of_warships_sm:992875634281955408>️ │ <@&990591248442216478> \n");
         ebgame4.setColor(0x4b3488);
         ebgame4.setImage("https://cdn.discordapp.com/attachments/880725442481520660/905443533824077845/auto_faqw.png");
-        ebgame4.setThumbnail("https://cdn.discordapp.com/attachments/990240111042113536/993212076984111104/Game.png");
+        ebgame4.setThumbnail("https://media.discordapp.net/attachments/987815549880926218/1033054505580892191/Game.png?width=309&height=309");
 
         pages.put(0, new RoleMessage(sendAgeRoles(), ebage,"resetage"));
         pages.put(1, new RoleMessage(sendGenderRoles(), ebgender,"resetgender"));
@@ -586,6 +592,7 @@ public class MainMenu extends ListenerAdapter {
                 .addOption("Borderlands 3", "borderlands3", "Klicke um diese Option zu wählen!", Emoji.fromFormatted("<:borderlands_3_sm:992875391234605086>"))
                 .addOption("Brawhalla", "brawhalla", "Klicke um diese Option zu wählen!", Emoji.fromFormatted("<:brawlhalla_sm:992875393298202694>"))
                 .addOption("Call of Duty: Cold War", "callofdutycoldwar", "Klicke um diese Option zu wählen!", Emoji.fromFormatted("<:call_of_duty_cold_war_sm:992875394577481769>"))
+                .addOption("Call of Duty: Modern Warfare 2", "callofdutymw2", "Klicke um diese Option zu wählen!", Emoji.fromFormatted("<:MW2:1045744203000451232>"))
                 .addOption("Call of Duty: Vanguard", "callofdutyvanguard", "Klicke um diese Option zu wählen!", Emoji.fromFormatted("<:call_of_duty_vanguard_sm:992875396150341802>"))
                 .addOption("Call of Duty: Warzone", "callofdutywarzone", "Klicke um diese Option zu wählen!", Emoji.fromFormatted("<:call_of_duty_warzone_sm:992875397588975698>"))
                 .addOption("Counter-Strike: GO", "csgo", "Klicke um diese Option zu wählen!", Emoji.fromFormatted("<:counter_strike_go_sm:992875399635804161>"))
@@ -593,6 +600,7 @@ public class MainMenu extends ListenerAdapter {
                 .addOption("DayZ", "dayz", "Klicke um diese Option zu wählen!", Emoji.fromFormatted("<:dayz_sm:992875408796168222>"))
                 .addOption("Destiny 2", "destiny2", "Klicke um diese Option zu wählen!", Emoji.fromFormatted("<:destiny_2_sm:992875410020913172>"))
                 .addOption("Diablo III", "diabloiii", "Klicke um diese Option zu wählen!", Emoji.fromFormatted("<:diablo_iii_sm:992875411019153440>"))
+                .addOption("Diablo IV", "diabloiv", "Klicke um diese Option zu wählen!", Emoji.fromFormatted("<:D4:1130793450971861102>"))
                 .addOption("DOOM Eternal", "doometernal", "Klicke um diese Option zu wählen!", Emoji.fromFormatted("<:doom_eternal_sm:992875415519633458>"))
                 .addOption("Dota 2", "dota2", "Klicke um diese Option zu wählen!", Emoji.fromFormatted("<:dota_2_sm:992875416836636703>"))
                 .addOption("Dota Underlords", "dotaunderloards", "Klicke um diese Option zu wählen!", Emoji.fromFormatted("<:dota_underlords_sm:992875418124288020>"))
@@ -610,6 +618,7 @@ public class MainMenu extends ListenerAdapter {
                 .addOption("Elden Ring", "eldenring", "Klicke um diese Option zu wählen!", Emoji.fromFormatted("<:elden_ring_sm:992875419445514240>"))
                 .addOption("Elder Scrolls Online", "elderscrollsonline", "Klicke um diese Option zu wählen!", Emoji.fromFormatted("<:elder_scrolls_online_sm:992875421030948925>"))
                 .addOption("Factorio", "factorio", "Klicke um diese Option zu wählen!", Emoji.fromFormatted("<:factorio_sm:992875422041784321>"))
+                .addOption("Farming Simulator 22", "farmingsimulator22", "Klicke um diese Option zu wählen!", Emoji.fromFormatted("<:Fs22:1045744406097055774>"))
                 .addOption("Fall Guys: Ultimate Knockout", "fallguys", "Klicke um diese Option zu wählen!", Emoji.fromFormatted("<:fall_guys_sm:992875425359474738>"))
                 .addOption("Fallout 76", "fallout76", "Klicke um diese Option zu wählen!", Emoji.fromFormatted("<:fallout_76_sm:992875426819080263>"))
                 .addOption("For Honor", "forhonor", "Klicke um diese Option zu wählen!", Emoji.fromFormatted("<:for_honor_sm:992875431835476038>"))
@@ -618,7 +627,6 @@ public class MainMenu extends ListenerAdapter {
                 .addOption("Garry's Mod", "garrysmod", "Klicke um diese Option zu wählen!", Emoji.fromFormatted("<:garrys_mod_sm:992875437715894272>"))
                 .addOption("Grand Theft Auto 5", "gta5", "Klicke um diese Option zu wählen!", Emoji.fromFormatted("<:grand_theft_auto_5_sm:992875441130057778>"))
                 .addOption("Grounded", "grounded", "Klicke um diese Option zu wählen!", Emoji.fromFormatted("<:grounded_sm:992875443348832356>"))
-                .addOption("Guild Wars 2", "guildwars2", "Klicke um diese Option zu wählen!", Emoji.fromFormatted("<:guild_wars_2_sm:992875445441802332>"))
                 .addOption("Halo: The Master Chief Collection", "halothemasterchiefcollection", "Klicke um diese Option zu wählen!", Emoji.fromFormatted("<:halo_the_master_chief_collection:992875446620393503>"))
                 .addOption("Hearthstone", "hearthstone", "Klicke um diese Option zu wählen!", Emoji.fromFormatted("<:hearthstone_sm:992875447866114179>"))
                 .addOption("Hell Let Loose", "hellletloose", "Klicke um diese Option zu wählen!", Emoji.fromFormatted("<:hell_let_loose_sm:992875448763678731>"))
@@ -674,7 +682,6 @@ public class MainMenu extends ListenerAdapter {
                 .addOption("Sea of Thieves", "seaofthieves", "Klicke um diese Option zu wählen!", Emoji.fromFormatted("<:sea_of_thieves_sm:992875687302144030>"))
                 .addOption("Smite", "smite", "Klicke um diese Option zu wählen!", Emoji.fromFormatted("<:smite_sm:992875688560443453>"))
                 .addOption("Star Citizen", "starcitizen", "Klicke um diese Option zu wählen!", Emoji.fromFormatted("<:star_citizen_sm:992875691043459133>"))
-                .addOption("Starcraft II", "starcraftii", "Klicke um diese Option zu wählen!", Emoji.fromFormatted("<:starcraft_ii_sm:992875692637290536>"))
                 .addOption("Subnautica: Below Zero", "subnautica", "Klicke um diese Option zu wählen!", Emoji.fromFormatted("<:subnautica_below_zero_sm:992875695258742804>"))
                 .addOption("Team Fortress 2", "teamfortress2", "Klicke um diese Option zu wählen!", Emoji.fromFormatted("<:team_fortress_2_sm:992875697985032223>"))
                 .addOption("Teamfight Tactics", "teamfighttactics", "Klicke um diese Option zu wählen!", Emoji.fromFormatted("<:teamfight_tactics_sm:992875700224786462>"))

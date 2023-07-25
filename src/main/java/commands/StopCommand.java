@@ -9,9 +9,7 @@ public class StopCommand extends ListenerAdapter {
         if(event.getMessage().getContentRaw().equals("!stop")) {
             if(event.getAuthor().getId().equals("261177656249155585") | event.getAuthor().getId().equals("600230293550399488")) {
                 event.getAuthor().openPrivateChannel().complete().sendMessage("Der Bot wird neugestartet!").queue();
-                System.exit(1);
-
-
+                System.exit(0);
             }
         }
     }
